@@ -1,0 +1,11 @@
+{
+  "name": "event-ticketing-capstone",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build 1 domain core for the Event Ticketing and Booking capstone",
+  "scripts": {
+    "demo": "node scripts/demo.js",
+    "benchmark": "node scripts/benchmark-lookup.js"
+  }
+}
