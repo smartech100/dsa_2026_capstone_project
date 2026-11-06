@@ -1,0 +1,6 @@
+# AI log — Build 4
+
+### Prompt: Build 4 working REST API
+- **What I asked:** Add the asynchronous in-memory repository, injected services, mock payment gateway, REST endpoints, API examples, and real-server `node:test` coverage while preserving the Build 3 domain and HTTP behavior.
+- **What came back:** The isolated `build4` project gained the repository/service/API layers and end-to-end tests for event creation, publishing, event search, booking, payment, and cancellation.
+- **What was wrong (or "nothing"):** Review caught that the existing `assertValid` helper cannot set custom error codes, so `INVALID_STATE` paths now throw `DomainError` directly. The first cancellation test matched other fixtures with the same title, so its event was given a unique title. More importantly, the shared state machine allows paid-to-cancelled transitions for later builds; Build 4 must reject paid cancellations, so the service now enforces pending-only cancellation before applying the state-machine transition. The Build 2 S04 criteria also include unpublishing, so an organizer-only unpublish route was added even though the endpoint list named only publish. Tests verify declined payments leave bookings pending and that card data never reaches the gateway. The full test suite passes after these fixes.
