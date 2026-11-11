@@ -1,0 +1,15 @@
+{
+  "name": "event-ticketing-capstone",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build 5 SQLite REST API for the Event Ticketing and Booking capstone",
+  "scripts": {
+    "demo": "node scripts/demo.js",
+    "benchmark": "node scripts/benchmark-lookup.js",
+    "seed": "node scripts/seed.js",
+    "oversell": "node scripts/oversell-demo.js",
+    "start": "node src/server.js",
+    "test": "node --test test/**/*.test.js"
+  }
+}
